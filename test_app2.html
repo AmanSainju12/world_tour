@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>World Tour Book</title>
+
+    <!-- PageFlip CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+
+    <style>
+        body {
+            background: #ffe6f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        #book {
+            width: 400px;
+            height: 600px;
+        }
+
+        .page {
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 22px;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="book">
+
+    <!-- Page 1 -->
+    <div class="page">
+        <h2>Want to go to my world tour? 🌍</h2>
+        <button id="yesBtn">Yes ❤️</button>
+        <button id="noBtn">No 😢</button>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="page">
+        <h2>Welcome to my world ✨</h2>
+        <img src="https://picsum.photos/400/500?1">
+    </div>
+
+    <!-- Page 3 -->
+    <div class="page">
+        <h2>Beautiful Memory 💕</h2>
+        <img src="https://picsum.photos/400/500?2">
+    </div>
+
+    <!-- Page 4 -->
+    <div class="page">
+        <h2>The End ❤️</h2>
+        <img src="https://picsum.photos/400/500?3">
+    </div>
+
+</div>
+
+<script>
+    const pageFlip = new St.PageFlip(
+        document.getElementById("book"),
+        {
+            width: 400,
+            height: 600,
+            showCover: true,
+            mobileScrollSupport: false
+        }
+    );
+
+    pageFlip.loadFromHTML(document.querySelectorAll(".page"));
+
+    let yesSize = 18;
+    let noSize = 18;
+
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("click", function() {
+        yesSize += 8;
+        noSize -= 4;
+
+        yesBtn.style.fontSize = yesSize + "px";
+        noBtn.style.fontSize = noSize + "px";
+
+        if (noSize <= 8) {
+            noBtn.style.display = "none";
+        }
+    });
+
+    yesBtn.addEventListener("click", function() {
+        pageFlip.flipNext(); // flip to next page
+    });
+</script>
+
+</body>
+</html>
+
