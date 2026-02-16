@@ -67,7 +67,7 @@ yesBtn.addEventListener("click", function() {
                 console.log("quotediv", i)
                 // First page: love quote
                 const quoteDiv = document.createElement("div");
-                quoteDiv.innerHTML = "💕 Love is the journey, not the destination 💕";
+                quoteDiv.innerHTML = "💕 You are my world, and no matter where life takes us—together or apart—my heart will always belong to you. Your love is my home, my anchor, and my greatest joy 💕";
 
                 // Styling
                 quoteDiv.style.padding = "40px";
